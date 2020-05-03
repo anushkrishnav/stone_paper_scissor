@@ -1,0 +1,32 @@
+Start
+Load loginUI()
+Display username Pwd TextBoxes
+Enter Newusername Pwd
+Click SignUp Button
+    On Click Validate input data(Data Entry Validation)
+    Create an User Object
+    Set_Name, and Set_Pwd
+    Call UserControl.SignUp() by passing the above User Object
+
+Now the Flow control has moved to UserControl.SignUp()
+    Verify Unique Username
+    If Invalid 
+        Throw error message
+    else
+        Pass the User Object to UserDAC.SaveUser()
+
+Now the Flow control has moved to UserDAC.SaveUser()
+    Create a Connection
+    Create an INSERT statement using UserData from User Object
+    Excecute the statement
+    Verify the INSERT Operation 
+    Return to UserControl
+
+Now the Flow control has moved to UserControl.SignUp()
+    Return to loginUI
+
+Now the Flow control has moved to loginUI()
+    Display Welcome message 
+
+
+

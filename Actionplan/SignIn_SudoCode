@@ -1,0 +1,34 @@
+Start
+Load loginUI()
+Display username Pwd TextBoxes
+Enter username Pwd
+Click SignIN Button
+    On Click Validate input data(Data Entry Validation)
+    Create an User Object
+    Set_Name, and Set_Pwd
+    Call UserControl.SignIN() by passing the above User Object
+
+Now the Flow control has moved to UserControl.SignIN()
+    Pass the User Object to UserDAC.CheckifUserPresent()
+
+Now the Flow control has moved to UserDAC.CheckifUserPresent()
+    Create a Connection
+    Create an SELECT statement using UserData from User Object
+    Excecute the statement
+    Check if rowcount== 0
+        return false
+    Else
+        return true
+    Return to UserControl
+
+Now the Flow control has moved to UserControl.SignIN()
+    if UserDAC.CheckifUserPresent()==True
+        Pass the User Object to GameUI()
+    else
+        Return to loginUI()
+
+Now the Flow control has moved to loginUI()
+    Display error message 
+    Go back to step 3
+
+
