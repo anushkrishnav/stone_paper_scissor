@@ -7,29 +7,33 @@ Click Stone/Paper/scissor Option Button
 Now the flow control has been shifted to GameController.PlayGame()
     Use random function to choose a random string from the given set of 3 strings
     Then the user play is compared with Computer's Play to determin the output
-    If User Play == Random selected value
-        Win=0
+    If (User Play == Random selected value) or (Computer Play defeats User play) 
+        result=0
+        go to line 35
     If Userplay defeats Computer Play
-        Win=1
-    If Computer Play defeats User play
-        Win=0
-    Win.set_User(User.get_Name)
-    Using a variable Pass the User object to WINDAC.UpdateScore()
+        result=1
+    Win.set_Username(User.get_Name())
+    Pass the User object to WINDAC.GetOldScore()
 
-Now the Flow control has moved to WINDAC.UpdateScore()
+Now the Flow control has moved to WINDAC.GetOldScore()
+    Create a connection
     Create an SELECT statement using UserData from User Object
+    //Select the old wins scored by the user from the User table
     Excecute the statement
-    Return Wins to GameContorller
+    Close the connection
+    Return The Wins to GameContorller
 
-Now the flow control has been shifted to GameController.PlayGame()
-    Add the the Win and variable
+Now the flow control has been shifted to GameController
+    Increment the old wins with the new result
     Win.set_Wins(Win)    
-    Pass the Win Object to WINDAC.UpdateScore()
+    Pass the updated Win Object to WINDAC.UpdateScore()
 
 Now the Flow control has moved to WINDAC.UpdateScore()
     Create a connection
-    Create an UPDATE UserDetails SET Win= Set_Win,WHERE Username=Win.Set_Name; 
+    Create an UPDATE UserDetails SET Win= Win.Get_Win,WHERE Username=Win.Get_Name; 
     Excecute the statement
+    Verify the result.
+    Close the connection
     Return to GameContorller
 
 Now the flow control has been shifted to GameController.PlayGame()
@@ -37,9 +41,9 @@ Now the flow control has been shifted to GameController.PlayGame()
     if yes 
         Return to step 1
     else 
-        Pass User Object to WINDAC.UpdateScore()
+        Pass User Object to WINDAC.GetTop5Score()
 
-Now the Flow control has moved to WINDAC.UpdateScore()
+Now the Flow control has moved to WINDAC.GetTop5Score()
     Create an SELECT Top 5 statement using UserData from User Object
     Excecute the statement
     Return Username,Wins to GameContorller

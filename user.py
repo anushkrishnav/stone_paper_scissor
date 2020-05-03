@@ -1,4 +1,3 @@
-from UInt import UserInterface
 class user():
     def __init__(self,uN='',passw='',wn=0):
         self.Set_Username(uN)
