@@ -2,13 +2,15 @@ Start
 Load loginUI()
 Display username Pwd TextBoxes
 Enter username Pwd
+Validate input data(Data Entry Validation)
+Create an User Object
+Set_Name, and Set_Pwd
+
 Click SignIN Button
-    On Click Validate input data(Data Entry Validation)
-    Create an User Object
-    Set_Name, and Set_Pwd
     Call UserControl.SignIN() by passing the above User Object
 
 Now the Flow control has moved to UserControl.SignIN()
+    Validate input data(Data Entry Validation)
     Pass the User Object to UserDAC.CheckifUserPresent()
 
 Now the Flow control has moved to UserDAC.CheckifUserPresent()

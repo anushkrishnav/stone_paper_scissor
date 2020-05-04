@@ -1,8 +1,8 @@
 Start
 Load loginUI()
-Display username Pwd TextBoxes
-Enter Newusername Pwd
-Click SignUp Button
+    Display username Pwd TextBoxes
+    Enter Newusername Pwd
+    Click SignUp Button
     On Click Validate input data(Data Entry Validation)
     Create an User Object
     Set_Name, and Set_Pwd
@@ -23,10 +23,8 @@ Now the Flow control has moved to UserDAC.SaveUser()
     Return to UserControl
 
 Now the Flow control has moved to UserControl.SignUp()
-    Return to loginUI
+    Call UserControl.SignIN()
 
-Now the Flow control has moved to loginUI()
-    Display Welcome message 
 
 
 

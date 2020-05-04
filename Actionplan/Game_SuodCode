@@ -1,23 +1,27 @@
 Start
 Load GameUI()
 Receive User Object from LoginUI()
-Click Stone/Paper/scissor Option Button
-    On Button Click Pass the Selected Option, and User object to the GameContorller.PlayGame()
+Create a Win object
+Win.set_Username(User.get_Name())
+Display welcome message and rules 
+Display options 
+Get user play as input
+    On getting the User's Play pass the user's play , and Win object to the GameContorller.PlayGame()
 
 Now the flow control has been shifted to GameController.PlayGame()
-    Use random function to choose a random string from the given set of 3 strings
+    Use random function to choose a random string from the given set of 3 strings(stone,paper,scissor)
     Then the user play is compared with Computer's Play to determin the output
     If (User Play == Random selected value) or (Computer Play defeats User play) 
         result=0
         go to line 35
     If Userplay defeats Computer Play
         result=1
-    Win.set_Username(User.get_Name())
-    Pass the User object to WINDAC.GetOldScore()
+    
+    Pass the Win object to WINDAC.GetOldScore()
 
 Now the Flow control has moved to WINDAC.GetOldScore()
     Create a connection
-    Create an SELECT statement using UserData from User Object
+    Create an SELECT statement using UserData from Win Object
     //Select the old wins scored by the user from the User table
     Excecute the statement
     Close the connection
@@ -37,12 +41,16 @@ Now the Flow control has moved to WINDAC.UpdateScore()
     Return to GameContorller
 
 Now the flow control has been shifted to GameController.PlayGame()
+    Return [score,Computerplay] to LoginUI
+Now the flow control has been shifted to LoginUI()
+
     Display "Do you like to continue "
     if yes 
         Return to step 1
     else 
-        Pass User Object to WINDAC.GetTop5Score()
-
+        Pass Win Object to GameController.Gettop5()
+Now the flow control has been shifted to GameController.Gettop5()
+    Pass Win object to WINDAC.GetTop5Score()
 Now the Flow control has moved to WINDAC.GetTop5Score()
     Create an SELECT Top 5 statement using UserData from User Object
     Excecute the statement
