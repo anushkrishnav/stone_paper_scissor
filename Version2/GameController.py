@@ -1,5 +1,5 @@
 import random
-from GameDAC import GameDAC
+from Version2.GameDAC import GameDAC
 class GameController():
     def GetTop5():
         data=GameDAC.GetTop5()
