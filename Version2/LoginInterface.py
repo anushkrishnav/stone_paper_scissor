@@ -2,7 +2,6 @@ import getpass
 from UserController import UserControl
 from user import User
 import string
-import termcolor
 from termcolor import colored
 class LoginUI():
     def login(self):

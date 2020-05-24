@@ -1,4 +1,4 @@
-from user import User
+
 from UserDAC import UserDAC
 from GameInterface import GameUI
 class UserControl():
@@ -11,8 +11,8 @@ class UserControl():
             UserDAC.SaveUser(obj)
             UserControl.SignIN(obj)
     def SignIN(obj):
-        name=obj.Get_Username()
-        passw=obj.Get_Password()
+        #name=obj.Get_Username()
+        #passw=obj.Get_Password()
         if UserDAC.VerifyUser(obj)==True:
             GameUI.GameInterface(obj)
         

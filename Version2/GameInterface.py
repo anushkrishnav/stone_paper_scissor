@@ -1,7 +1,6 @@
 
 from Wins import Win
 from GameController import GameController
-import random
 from termcolor import colored
 class GameUI():
     def GameInterface(obj):
